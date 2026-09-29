@@ -74,6 +74,7 @@ public class TicketServiceImpl implements TicketService {
 
            TicketDetailResponse detailResponse = TicketDetailResponse.builder()
                    .id(ticket.getId())
+                   .tripId(tripResponse.id())
                    .seats(detail.seat())
                    .ticketPrice(tripResponse.ticketPrice())
                    .lineTotal(detail.seat() * tripResponse.ticketPrice())
