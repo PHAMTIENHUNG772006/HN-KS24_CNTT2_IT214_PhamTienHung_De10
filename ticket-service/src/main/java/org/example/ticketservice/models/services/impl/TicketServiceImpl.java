@@ -53,7 +53,7 @@ public class TicketServiceImpl implements TicketService {
                throw new IllegalArgumentException("Số lượng ghế phải lớn hơn 0");
            }
 
-           if (detail.seat() <= tripResponse.availableSeats()){
+           if (detail.seat() >= tripResponse.availableSeats()){
                throw new IllegalArgumentException("Số lượng ghế không đủ để đặt");
            }
 
