@@ -31,4 +31,4 @@ notification:
   mail:
     from: ${MAIL_FROM:${MAIL_USERNAME:}}
   kafka:
-    order-created-topic: ${ORDER_CREATED_TOPIC:ticket-trip-created}
+    order-created-topic: ${ORDER_CREATED_TOPIC:ticket-created}

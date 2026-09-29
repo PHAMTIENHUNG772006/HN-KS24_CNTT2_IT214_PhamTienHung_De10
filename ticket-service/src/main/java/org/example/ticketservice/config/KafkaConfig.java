@@ -10,6 +10,6 @@ public class KafkaConfig {
 
     @Bean
     public NewTopic  newTopic() {
-        return TopicBuilder.name("ticket-trip-created").partitions(3).replicas(1).build();
+        return TopicBuilder.name("ticket-created").partitions(3).replicas(1).build();
     }
 }

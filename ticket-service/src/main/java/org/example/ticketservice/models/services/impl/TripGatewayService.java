@@ -20,8 +20,6 @@ public class TripGatewayService {
          if (tripResponse == null) {
              throw new IllegalArgumentException("Chuyến di khong ton tai");
          }
-
-
          return tripResponse;
     }
 

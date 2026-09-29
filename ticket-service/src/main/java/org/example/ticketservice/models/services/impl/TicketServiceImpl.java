@@ -65,6 +65,13 @@ public class TicketServiceImpl implements TicketService {
                     .totalAmount(detail.seat() * tripResponse.ticketPrice())
                     .build();
 
+           TicketDetail ticketDetail = TicketDetail.builder()
+                   .tripId(tripResponse.id())
+                   .ticketPrice(tripResponse.ticketPrice())
+                   .seats(detail.seat())
+                   .lineTotal(detail.seat() * tripResponse.ticketPrice())
+                   .build();
+
            TicketDetailResponse detailResponse = TicketDetailResponse.builder()
                    .id(ticket.getId())
                    .seats(detail.seat())
@@ -77,8 +84,9 @@ public class TicketServiceImpl implements TicketService {
            totalAmount += detail.seat()  * tripResponse.ticketPrice();
 
            ticketRepository.save(ticket);
+           ticketDetailRepository.save(ticketDetail);
 
-           kafkaTemplate.send("ticket-trip-created",ticket.getId().toString());
+           kafkaTemplate.send("ticket-created",ticket.getId().toString());
         }
 
 
